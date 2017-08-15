@@ -2,4 +2,5 @@
     <string name="app_name">End Year\'s Party</string>
     <string name="today">Hoje</string>
     <string name="days_remaining">Dias restantes para o fim do ano:</string>
+    <string name="going_to_participate">Você vai participar?</string>
 </resources>
