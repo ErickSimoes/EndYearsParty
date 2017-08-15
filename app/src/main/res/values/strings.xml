@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">End Year\'s Party</string>
     <string name="today">Hoje</string>
+    <string name="days_remaining">Dias restantes para o fim do ano:</string>
 </resources>
