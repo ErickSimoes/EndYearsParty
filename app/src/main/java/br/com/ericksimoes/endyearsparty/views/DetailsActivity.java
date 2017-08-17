@@ -1,4 +1,4 @@
-package br.com.ericksimoes.endyearsparty;
+package br.com.ericksimoes.endyearsparty.views;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.CheckBox;
 
+import br.com.ericksimoes.endyearsparty.R;
 import br.com.ericksimoes.endyearsparty.constants.EndYearsConstants;
 import br.com.ericksimoes.endyearsparty.util.SecurityPreferences;
 
