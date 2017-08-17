@@ -1,9 +1,8 @@
 package br.com.ericksimoes.endyearsparty.views;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -15,11 +14,11 @@ import br.com.ericksimoes.endyearsparty.R;
 import br.com.ericksimoes.endyearsparty.constants.EndYearsConstants;
 import br.com.ericksimoes.endyearsparty.util.SecurityPreferences;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private static final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
     private ViewHolder mViewHolder = new ViewHolder();
     private SecurityPreferences mSecurityPreferences;
-    private static final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    private int getDaysLaftToEndOfYear () {
+    private int getDaysLaftToEndOfYear() {
         Calendar calendarToday = Calendar.getInstance();
         int today = calendarToday.get(Calendar.DAY_OF_YEAR);
 
@@ -76,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case EndYearsConstants.CONFIRMED_WILL_GO:
                 this.mViewHolder.buttonConfirm.setText(R.string.yes);
                 break;
-            case  EndYearsConstants.CONFIRMED_WONT_GO:
+            case EndYearsConstants.CONFIRMED_WONT_GO:
                 this.mViewHolder.buttonConfirm.setText(R.string.no);
                 break;
         }
