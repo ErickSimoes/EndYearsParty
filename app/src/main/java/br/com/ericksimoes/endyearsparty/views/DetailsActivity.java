@@ -1,6 +1,5 @@
 package br.com.ericksimoes.endyearsparty.views;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -24,6 +23,8 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
 
         this.mViewHolder.checkParticipate = (CheckBox) findViewById(R.id.checkbox_participate);
         this.mViewHolder.checkParticipate.setOnClickListener(this);
+
+        this.loadDataFromActivity();
     }
 
     @Override
@@ -35,6 +36,15 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
             } else {
                 this.mSecurityPreferences.storeString(EndYearsConstants.PRESENCE, EndYearsConstants.CONFIRMED_WONT_GO);
             }
+        }
+    }
+
+    private void loadDataFromActivity() {
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            String presence = extras.getString(EndYearsConstants.PRESENCE);
+            
+            this.mViewHolder.checkParticipate.setChecked(presence.equals(EndYearsConstants.CONFIRMED_WILL_GO));
         }
     }
 

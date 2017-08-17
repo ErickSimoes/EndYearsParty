@@ -37,7 +37,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         int id = v.getId();
         if (id == R.id.button_confirm) {
+            String presence = this.mSecurityPreferences.getStoredString(EndYearsConstants.PRESENCE);
             Intent intent = new Intent(this, DetailsActivity.class);
+            intent.putExtra(EndYearsConstants.PRESENCE, presence);
             startActivity(intent);
         }
     }
