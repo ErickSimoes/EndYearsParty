@@ -43,7 +43,7 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             String presence = extras.getString(EndYearsConstants.PRESENCE);
-            
+
             this.mViewHolder.checkParticipate.setChecked(presence.equals(EndYearsConstants.CONFIRMED_WILL_GO));
         }
     }

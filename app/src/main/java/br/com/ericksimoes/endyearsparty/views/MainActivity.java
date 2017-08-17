@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 import br.com.ericksimoes.endyearsparty.R;
 import br.com.ericksimoes.endyearsparty.constants.EndYearsConstants;
 import br.com.ericksimoes.endyearsparty.util.SecurityPreferences;
@@ -16,6 +19,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private ViewHolder mViewHolder = new ViewHolder();
     private SecurityPreferences mSecurityPreferences;
+    private static final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +33,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.mViewHolder.buttonConfirm = (Button) findViewById(R.id.button_confirm);
 
         this.mViewHolder.buttonConfirm.setOnClickListener(this);
+
+        this.mViewHolder.textToday.setText(SIMPLE_DATE_FORMAT.format(Calendar.getInstance().getTime()));
+
+        String daysLeft = String.format("%s %s", String.valueOf(getDaysLaftToEndOfYear()), getString(R.string.days));
+        this.mViewHolder.textDaysLeft.setText(daysLeft);
     }
 
     @Override
@@ -47,6 +56,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             intent.putExtra(EndYearsConstants.PRESENCE, presence);
             startActivity(intent);
         }
+    }
+
+    private int getDaysLaftToEndOfYear () {
+        Calendar calendarToday = Calendar.getInstance();
+        int today = calendarToday.get(Calendar.DAY_OF_YEAR);
+
+        Calendar calendarLastDay = Calendar.getInstance();
+        int dayDecember31 = calendarLastDay.getActualMaximum(Calendar.DAY_OF_YEAR);
+
+        return dayDecember31 - today;
     }
 
     private void verifyPresence() {
