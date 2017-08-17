@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import br.com.ericksimoes.endyearsparty.R;
+import br.com.ericksimoes.endyearsparty.constants.EndYearsConstants;
 import br.com.ericksimoes.endyearsparty.util.SecurityPreferences;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -28,6 +29,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.mViewHolder.buttonConfirm = (Button) findViewById(R.id.button_confirm);
 
         this.mViewHolder.buttonConfirm.setOnClickListener(this);
+
+        this.verifyPresence();
     }
 
     @Override
@@ -36,6 +39,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (id == R.id.button_confirm) {
             Intent intent = new Intent(this, DetailsActivity.class);
             startActivity(intent);
+        }
+    }
+
+    private void verifyPresence() {
+        switch (mSecurityPreferences.getStoredString(EndYearsConstants.PRESENCE)) {
+            case "":
+                this.mViewHolder.buttonConfirm.setText(R.string.not_confirmed);
+                break;
+            case EndYearsConstants.CONFIRMED_WILL_GO:
+                this.mViewHolder.buttonConfirm.setText(R.string.yes);
+                break;
+            case  EndYearsConstants.CONFIRMED_WONT_GO:
+                this.mViewHolder.buttonConfirm.setText(R.string.no);
+                break;
         }
     }
 
