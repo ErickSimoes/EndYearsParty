@@ -1,21 +1,27 @@
 package br.com.ericksimoes.endyearsparty;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.CheckBox;
 
+import br.com.ericksimoes.endyearsparty.constants.EndYearsConstants;
+import br.com.ericksimoes.endyearsparty.util.SecurityPreferences;
+
 public class DetailsActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ViewHolder mViewHolder = new ViewHolder();
+    private SecurityPreferences mSecurityPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
 
-        this.mViewHolder.checkParticipate = (CheckBox) findViewById(R.id.checkbox_participate);
+        this.mSecurityPreferences = new SecurityPreferences(this);
 
+        this.mViewHolder.checkParticipate = (CheckBox) findViewById(R.id.checkbox_participate);
         this.mViewHolder.checkParticipate.setOnClickListener(this);
     }
 
@@ -23,7 +29,11 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View v) {
         int id = v.getId();
         if (id == R.id.checkbox_participate) {
-            // click action
+            if (this.mViewHolder.checkParticipate.isChecked()) {
+                this.mSecurityPreferences.storeString(EndYearsConstants.PRESENCE, EndYearsConstants.CONFIRMED_WILL_GO);
+            } else {
+                this.mSecurityPreferences.storeString(EndYearsConstants.PRESENCE, EndYearsConstants.CONFIRMED_WONT_GO);
+            }
         }
     }
 
