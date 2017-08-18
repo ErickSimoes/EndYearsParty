@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         this.mViewHolder.textToday.setText(SIMPLE_DATE_FORMAT.format(Calendar.getInstance().getTime()));
 
-        String daysLeft = String.format("%s %s", String.valueOf(getDaysLaftToEndOfYear()), getString(R.string.days));
+        String daysLeft = String.format("%s %s", String.valueOf(getDaysLeftToEndOfYear()), getString(R.string.days));
         this.mViewHolder.textDaysLeft.setText(daysLeft);
     }
 
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    private int getDaysLaftToEndOfYear() {
+    private int getDaysLeftToEndOfYear() {
         Calendar calendarToday = Calendar.getInstance();
         int today = calendarToday.get(Calendar.DAY_OF_YEAR);
 
