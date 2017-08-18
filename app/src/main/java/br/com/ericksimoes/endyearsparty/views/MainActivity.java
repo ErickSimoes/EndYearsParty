@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Locale;
 
 import br.com.ericksimoes.endyearsparty.R;
 import br.com.ericksimoes.endyearsparty.constants.EndYearsConstants;
@@ -16,7 +17,7 @@ import br.com.ericksimoes.endyearsparty.util.SecurityPreferences;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private static final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
+    private static final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
     private ViewHolder mViewHolder = new ViewHolder();
     private SecurityPreferences mSecurityPreferences;
 
