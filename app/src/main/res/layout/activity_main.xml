@@ -7,14 +7,19 @@
     tools:context="br.com.ericksimoes.endyearsparty.views.MainActivity">
 
     <TextView
+        android:id="@+id/text_label_today"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/today" />
+        android:text="@string/today"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/text_today"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/text_label_today"
+        android:textSize="25sp" />
 
     <TextView
         android:layout_width="wrap_content"
