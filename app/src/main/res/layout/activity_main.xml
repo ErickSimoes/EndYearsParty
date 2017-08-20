@@ -21,7 +21,7 @@
         android:layout_toRightOf="@+id/text_label_today"
         android:textSize="25sp" />
 
-    <view
+    <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_below="@+id/text_label_today"
