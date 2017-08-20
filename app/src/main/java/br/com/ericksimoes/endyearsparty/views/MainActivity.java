@@ -26,6 +26,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
+
         this.mSecurityPreferences = new SecurityPreferences(this);
 
         this.mViewHolder.textToday = (TextView) findViewById(R.id.text_today);
