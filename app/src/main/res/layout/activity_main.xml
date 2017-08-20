@@ -11,8 +11,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/today"
-        android:textSize="20sp"
-        android:textColor="@color/colorPrimaryText"/>
+        android:textColor="@color/colorPrimaryText"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/text_today"
@@ -20,8 +20,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_toRightOf="@+id/text_label_today"
-        android:textSize="25sp"
-        android:textColor="@color/colorPrimaryText"/>
+        android:textColor="@color/colorPrimaryText"
+        android:textSize="25sp" />
 
     <View
         android:layout_width="match_parent"
@@ -38,8 +38,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="120dp"
         android:text="@string/days_remaining"
-        android:textSize="20sp"
-        android:textColor="@color/colorPrimaryText"/>
+        android:textColor="@color/colorPrimaryText"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/text_days_left"
@@ -48,15 +48,17 @@
         android:layout_below="@+id/text_label_days_laft"
         android:layout_centerHorizontal="true"
         android:padding="20sp"
-        android:textSize="40sp"
-        android:textColor="@color/colorPrimaryDark"/>
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="40sp" />
 
     <Button
         android:id="@+id/button_confirm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:background="@drawable/round_corner_button"
         android:padding="20sp"
+        android:textColor="@color/colorTextWhite"
         android:textSize="20sp" />
 
 </RelativeLayout>
